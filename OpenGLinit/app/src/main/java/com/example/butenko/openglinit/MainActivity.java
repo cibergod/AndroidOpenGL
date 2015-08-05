@@ -5,14 +5,38 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+//добавляем классы OpenGL
+import android.opengl.GLSurfaceView;
 
 public class MainActivity extends AppCompatActivity {
+
+    //ссылка на наш OpenGL
+    private GLSurfaceView mGLView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //связываем наш OpenGL с окном в котором будем рисовать
+        mGLView = new MyGLSurfaceView(this);
+        //передаем ссылку в на наш класс
+        setContentView(mGLView);
+
+    }
+
+    //событие срабатывает во время паузы (скрытия экрана )
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mGLView.onPause();
+    }
+
+    //событие срабатывает во время показа экрана
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mGLView.onResume();
     }
 
     @Override
