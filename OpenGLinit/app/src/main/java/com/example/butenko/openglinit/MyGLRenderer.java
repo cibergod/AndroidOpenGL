@@ -18,7 +18,9 @@ public class MyGLRenderer
     public void onSurfaceCreated(GL10 unused, EGLConfig config)
     {
         // Задаем цвет очистки экрана
-        GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+        GLES20.glClearColor(1, 1, 1, 1.0f);
+
+
     }
     //переписываем функцию на свой лад
     @Override
@@ -27,7 +29,7 @@ public class MyGLRenderer
         // Очистка окна заданным цветом
         GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
 
-        
+
     }
     //переписываем функцию на свой лад
     @Override
